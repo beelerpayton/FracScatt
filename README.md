@@ -1,4 +1,4 @@
-# PyFracScatt
+# pyBCabs
 
 Infers morphology of coated black carbon aggregates based on particle mass, mixing state, and mass absorption cross-section.
 
@@ -10,11 +10,11 @@ Infers morphology of coated black carbon aggregates based on particle mass, mixi
 
 ## Documentation
 
-http://fracscatt_fake.readthedocs.io/en/latest
+http://pyBCabs_fake.readthedocs.io/en/latest
 
 ## Installation
 
-	pip install FracScatt
+	pip install pyBCabs
 
 Or clone from source and run
 
