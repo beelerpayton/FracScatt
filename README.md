@@ -1,4 +1,4 @@
-# FracScatt
+# PyFracScatt
 
 Infers morphology of coated black carbon aggregates based on particle mass, mixing state, and mass absorption cross-section.
 
