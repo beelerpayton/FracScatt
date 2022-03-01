@@ -8,7 +8,7 @@ Functions for single particles
 
    Computes core phase shift parameter :math:`{\rho_{BC}}` of fractal black carbon aggregates. Uses particle diameter :math:`{d_p}`, mass absorption cross-section :math:`{MAC_{BC}}`, and mixing state :math:`{M_{tot}/M_{BC}}`, and calculates :math:`{\rho_{BC}}` via:
    
-		:math:`${\displaystyle MAC_{BC}=MAC_0\left (\frac{\lambda}{lambda_0} \right)^{-AAE}}$`
+		:math:`${\displaystyle MAC_{BC}=MAC_0\left (\frac{\lambda}{\lambda_0} \right)^{-AAE}}$`
    
    
    **Parameters**
