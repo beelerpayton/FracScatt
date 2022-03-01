@@ -37,7 +37,7 @@ Revision History
 
   - Debugging and troubleshooting.
   
-  Author Contact Information
+Author Contact Information
 --------------------------
 PyFracScatt was written by `Payton Beeler <https://scholar.google.com/citations?user=8Td-XI4AAAAJ&hl=en&oi=ao/>`_.
 
