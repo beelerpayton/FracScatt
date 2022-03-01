@@ -1,53 +1,41 @@
-Functions for Forward Mie Calculations of Homogeneous Spheres
+Morphology Retrieval for Internally Mixed Black Carbon Aggregates
 =============================================================
 
 Functions for single particles
 ---------------------------------
 
-.. py:function:: MieQ(m, wavelength, diameter[, nMedium=1.0, asDict=False, asCrossSection=False])
+.. py:function:: SingleParticle(coating, absorption, wavelength, diameter[, abs_error=0.0, mode='Mtot_Mbc', r_monomer=20.0])
 
-   Computes Mie efficencies *Q* and asymmetry parameter *g* of a single, homogeneous particle. Uses :py:func:`Mie_ab` to calculate :math:`a_n` and :math:`b_n`, and then calculates *Q* via:
+   Computes core phase shift parameter :math:`${\rho_{BC}}$` of fractal black carbon aggregates. Uses particle diameter :math:`${d_p}$`, mass absorption cross-section :math:`${MAC_{BC}}$`, and mixing state :math:`${M_{tot}/M_{BC}}$`, and calculates :math:`${\rho_{BC}}$` via:
    
-		:math:`${\displaystyle Q_{ext}=\frac{2}{x^2}\sum_{n=1}^{n_{max}}(2n+1)\:\text{Re}\left\{a_n+b_n\right\}}$`
-		
-		:math:`${\displaystyle Q_{sca}=\frac{2}{x^2}\sum_{n=1}^{n_{max}}(2n+1)(|a_n|^2+|b_n|^2)}$`
-		
-		:math:`${\displaystyle Q_{abs}=Q_{ext}-Q_{sca}}$`
-		
-		:math:`${\displaystyle Q_{back}=\frac{1}{x^2} \left| \sum_{n=1}^{n_{max}}(2n+1)(-1)^n(a_n-b_n) \right| ^2}$`
-		
-		:math:`${\displaystyle Q_{ratio}=\frac{Q_{back}}{Q_{sca}}}$`
-		
-		:math:`${\displaystyle g=\frac{4}{Q_{sca}x^2}\left[\sum\limits_{n=1}^{n_{max}}\frac{n(n+2)}{n+1}\text{Re}\left\{a_n a_{n+1}^*+b_n b_{n+1}^*\right\}+\sum\limits_{n=1}^{n_{max}}\frac{2n+1}{n(n+1)}\text{Re}\left\{a_n b_n^*\right\}\right]}$`
-		
-		:math:`${\displaystyle Q_{pr}=Q_{ext}-gQ_{sca}}$`
-		
-   where asterisks denote the complex conjugates.
+		:math:`${\displaystyle MAC_{BC}=MAC_0\left (\frac{\lambda}{lambda_0}^{-AAE} \right) \left| 1+\frac{AC \Gamma (B+1,C)}{C}-\frac{A \left( \frac{M_{tot}}{M_{BC}} \right)^B \left(C \frac{M_{tot}}{M_{BC}} \right)^{-B} \Gamma(B+1,C \frac{M_{tot}}{M_{BC}}}{C}}$`
+   
    
    **Parameters**
    
    
-   m : complex
-	The complex refractive index, with the convention *m = n+ik*.
+   coating : float
+	Ratio of total particle mass to black carbon mass.
+   absorption : float
+	The mass absorption cross-section with units of m\ :sup:`2`/g.
    wavelength : float
 	The wavelength of incident light, in nanometers.
    diameter : float
-	The diameter of the particle, in nanometers.
-   nMedium : float, optional
-	The refractive index of the surrounding medium. This must be positive, nonzero, and real. Any imaginary part will be discarded.
-   asDict : bool, optional
-	If specified and set to True, returns the results as a dict.
-   asCrossSection : bool, optional
-	If specified and set to True, returns the results as optical cross-sections with units of nm\ :sup:`2`.
+   	The volume-equivalent diameter, in nanometers.
+   abs_error : float, optional
+	The errors associated with mass absorption cross-section measurement.
+   mode : string, optional
+	Available options:
+	Mtot_Mbc : ratio of total particle mass to black carbon mass
+	Rbc : ratio of coating mass to black carbon mass
+	OC:EC : ratio of organic carbon mass to black carbon mass
+	percent_BC : percentage of total particle mass which is attributed to black carbon.
+	
 	
    **Returns**
    
    
-   qext, qsca, qabs, g, qpr, qback, qratio : float
+   mass, rho : float
 	The Mie efficencies described above.
-   cext, csca, cabs, g, cpr, cback, cratio : float
-	If asCrossSection==True, :py:func:`MieQ` returns optical cross-sections with units of nm\ :sup:`2`.
-   q : dict
-	If asDict==True, :py:func:`MieQ` returns a dict of the above efficiencies with appropriate keys.
-   c : dict
-	If asDict==True and asCrossSection==True, returns a dict of the above cross-sections with appropriate keys.
+   fig : figure
+	Figure showing morphology retrival.
