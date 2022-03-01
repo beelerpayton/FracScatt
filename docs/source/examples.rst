@@ -1,21 +1,17 @@
 .. highlight:: python
 
-General Usage tips and Example Scripts
+Example Scripts
 ======================================
 
-Examples are now more or less up-to-date with PyMieScatt's modern syntax.
-
-PyMieScatt's functions are designed to work as a standalone calculator or as part of larger, more customized scripts. This page has a few selected examples which will expand as more innovative use cases appear. If you use PyMieScatt in your research in an unexpected or novel way, please `contact the author <mailto:bsumlin@wustl.edu>`_ to post an example here.
-
-Mie Efficiencies of a Single Homogeneous Particle
+Morphology of of a Single Black Carbon Particle
 -------------------------------------------------
 
-To calculate the efficencies of a single homogeneous particle, use the :py:func:`MieQ` function.
+To infer the morphology of a single BC particle, use the :py:func:`SingleParticle` function.
 
 .. code-block:: pycon
    
-   >>> import PyMieScatt as ps
-   >>> ps.MieQ(1.5+0.5j,532,200,asDict=True)
+   >>> import pyBCabsorption as pbca
+   >>> pbca.MieQ(1.5+0.5j,532,200,asDict=True)
    {'Qabs': 1.2206932456722366,
     'Qback': 0.2557593071989655,
     'Qext': 1.6932375984850729,
