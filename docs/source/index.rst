@@ -23,13 +23,17 @@ or from `GitHub <https://github.com/beelerpayton/PyFracScatt>`_. Clone the repos
 
    $ python setup.py install
 
-Revision Notes - version 0.0.1 (28 February, 2022)
-------------------------------------------------------------------------------
+Revision Notes
+----------------
+
+- 0.0.1 (28 February, 2022)
 
   - Debugging and troubleshooting.
   
-Revision History - version 0.0.1 (28 February, 2022)
-------------------------------------------------------------------------------
+Revision History
+----------------
+
+- 0.0.1 (28 February, 2022)
 
   - Debugging and troubleshooting.
   
