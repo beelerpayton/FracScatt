@@ -4,7 +4,7 @@ Morphology Retrieval for Internally Mixed Black Carbon Aggregates
 Theory 
 ---------------------------------
 
-   This package computes core phase shift parameter :math:`{\left(\rho_{BC}\right)}` and infers the morphology of fractal black carbon aggregates. First, using the particle diameter :math:`{\left(d_p\right)}`, mass absorption cross-section :math:`{\left(MAC_{BC}\right)}`, and mixing state :math:`{\left(M_{tot}/M_{BC}\right)}`, :math:`{\rho_{BC}}` is constrained by determining whether the measured mass absorption cross-section :math:`{\left(MAC_{BC,measured}\right)}` is significantly less than that given by:
+   This package computes the core phase shift parameter :math:`{\left(\rho_{BC}\right)}` and infers the morphology of fractal black carbon aggregates using the particle diameter :math:`{\left(d_p\right)}`, mass absorption cross-section :math:`{\left(MAC_{BC}\right)}`, and mixing state :math:`{\left(M_{tot}/M_{BC}\right)}`. First, :math:`{\rho_{BC}}` is constrained by determining whether the measured mass absorption cross-section :math:`{\left(MAC_{BC,measured}\right)}` is significantly less than that given by:
    
 	:math:`{MAC_{BC,predicted}=MAC_0\left (\frac{\lambda}{\lambda_0} \right)^{-AAE}\left[1+\frac{AC^{-B}\Gamma(B+1,C)}{C}-\frac{A\left(\frac{M_{tot}}{M_{BC}}\right)^{B}\left(\frac{M_{tot}}{M_{BC}}\right)^{-B}\Gamma\left(B+1,C\frac{M_{tot}}{M_{BC}}\right)}{C}\right]}`
 	
@@ -14,9 +14,9 @@ Theory
 	- :math:`{MAC_0=6.819\pm0.131}`
 	- :math:`{AAE=1.231\pm0.005}`
 	
-   If :math:`{MAC_{BC,measured}}` is within 10% of :math:`{MAC_{BC,predicted}}`, then :math:`{\rho_{BC}}` can be constrained to 0 < :math:`{\rho_{BC}}` < 1, but cannot be exactly calculated. If :math:`{MAC_{BC,measured}}` is more than 10% less than :math:`{MAC_{BC,predicted}}`, then :math:`{\rho_{BC}}` is calculated by solving: 
+   If :math:`{MAC_{BC,measured}}` is within 10% of :math:`{MAC_{BC,predicted}}`, then :math:`{\rho_{BC}}` can be constrained to 0 < :math:`{\rho_{BC}}` < 1, but cannot be exactly calculated. If :math:`{MAC_{BC,measured}}` is less than 90% of :math:`{MAC_{BC,predicted}}`, then :math:`{\rho_{BC}}` is calculated by solving: 
    
-	:math:`{MAC_{BC,measured}=MAC_0\left (\frac{\lambda}{\lambda_0} \right)^{-AAE}\left[\frac{D}{E+1}\left(\rho_{BC}^{1-E}-1\right)+\frac{D}{1-2E}\left(\rho_{BC}^{1-2E}-1\right)\right]+MAC_{BC}|_{\rho_{BC<1}}}`
+	:math:`{MAC_{BC,measured}=MAC_0\left (\frac{\lambda}{\lambda_0} \right)^{-AAE}\left[\frac{D}{E+1}\left(\rho_{BC}^{1-E}-1\right)+\frac{D}{1-2E}\left(\rho_{BC}^{1-2E}-1\right)\right]+MAC_{BC,predicted}}`
 
    Where :math:`{D}` and :math:`{E}` are sigmoid functions, given by:
    
@@ -34,7 +34,7 @@ Theory
 	- :math:`{e_4=10.106\pm0.131}`
    
    
-   The single particle mass is determined from the provided :math:`{\left(d_p\right)}`. Details on the derivation of the above equations are `available here <https://doi.org/10.1016/j.jqsrt.2017.10.012>`_.
+   Details on the derivation of the above equations are `available here <https://doi.org/10.1016/j.jqsrt.2017.10.012>`_.
 
 
 Functions for single particles
@@ -42,7 +42,7 @@ Functions for single particles
 
 .. py:function:: SingleParticle(coating, absorption, wavelength, diameter[, abs_error=0.0, mode='Mtot_Mbc', r_monomer=20.0])
 
-   The single particle mass is determined using the provided :math:`{\left(d_p\right)}`, assuming the density of black carbon is 1.8 g/cm\ :sup:`3`.
+   The core phase shift parameter is determined using the procedure outlined `above <Theory>`_. The single particle mass is determined using the provided :math:`{d_p}`, assuming the density of black carbon is 1.8 g/cm\ :sup:`3`.
    
    **Parameters**
    
