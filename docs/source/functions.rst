@@ -40,16 +40,3 @@ Functions for single particles
    fig : figure
 	Figure showing morphology retrival.
 	
-
-
-
-
-
-
-.. toctree::
-   :maxdepth: 2
-   :caption: Table of Contents
-   
-   Documentation Home <index>
-   Morphology Retrieval <functions>
-   Example Scripts <examples>
