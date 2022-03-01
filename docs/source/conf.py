@@ -2,7 +2,7 @@
 
 # -- Project information
 
-project = 'PyFracScatt'
+project = 'pyBCabsorption'
 copyright = '2022, Payton Beeler'
 author = 'P. Beeler'
 
