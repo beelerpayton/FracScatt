@@ -6,9 +6,9 @@ Functions for single particles
 
 .. py:function:: SingleParticle(coating, absorption, wavelength, diameter[, abs_error=0.0, mode='Mtot_Mbc', r_monomer=20.0])
 
-   Computes core phase shift parameter :math:`${\rho_{BC}}$` of fractal black carbon aggregates. Uses particle diameter :math:`${d_p}$`, mass absorption cross-section :math:`${MAC_{BC}}$`, and mixing state :math:`${M_{tot}/M_{BC}}$`, and calculates :math:`${\rho_{BC}}$` via:
+   Computes core phase shift parameter :math:`{\rho_{BC}}` of fractal black carbon aggregates. Uses particle diameter :math:`{d_p}`, mass absorption cross-section :math:`{MAC_{BC}}`, and mixing state :math:`{M_{tot}/M_{BC}}`, and calculates :math:`{\rho_{BC}}` via:
    
-		:math:`${\displaystyle MAC_{BC}=MAC_0\left (\frac{\lambda}{lambda_0}^{-AAE} \right) \left| 1+\frac{AC \Gamma (B+1,C)}{C}-\frac{A \left( \frac{M_{tot}}{M_{BC}} \right)^B \left(C \frac{M_{tot}}{M_{BC}} \right)^{-B} \Gamma(B+1,C \frac{M_{tot}}{M_{BC}}}{C}}$`
+		:math:`${\displaystyle MAC_{BC}=MAC_0\left (\frac{\lambda}{lambda_0} \right)^{-AAE}}$`
    
    
    **Parameters**
