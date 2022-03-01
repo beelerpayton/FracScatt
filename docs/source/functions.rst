@@ -8,7 +8,7 @@ Functions for single particles
 
    Computes core phase shift parameter :math:`{\rho_{BC}}` of fractal black carbon aggregates. Uses particle diameter :math:`{d_p}`, mass absorption cross-section :math:`{MAC_{BC}}`, and mixing state :math:`{M_{tot}/M_{BC}}`, and calculates :math:`{\rho_{BC}}` via:
    
-	:math:`{\displaystyle MAC_{BC}=MAC_0\left (\frac{\lambda}{\lambda_0} \right)^{-AAE}\left[1+\frac{AC^{-B}\Gamma(B+1,C)}{C}-\frac{A\left(\frac{M_{tot}}{M_{BC}}\right)^{B}\left(\frac{M_{tot}}{M_{BC}}\right)^{-B}\Gamma\left(B+1,C\frac{M_{tot}}{M_{BC}}\right)}{C}\right]}`
+	:math:`{MAC_{BC}=MAC_0\left (\frac{\lambda}{\lambda_0} \right)^{-AAE}\left[1+\frac{AC^{-B}\Gamma(B+1,C)}{C}-\frac{A\left(\frac{M_{tot}}{M_{BC}}\right)^{B}\left(\frac{M_{tot}}{M_{BC}}\right)^{-B}\Gamma\left(B+1,C\frac{M_{tot}}{M_{BC}}\right)}{C}\right]}`
    
    
    **Parameters**
@@ -26,10 +26,10 @@ Functions for single particles
 	The errors associated with mass absorption cross-section measurement.
    mode : string, optional
 	Available options:
-	Mtot_Mbc : ratio of total particle mass to black carbon mass
-	Rbc : ratio of coating mass to black carbon mass
-	OC:EC : ratio of organic carbon mass to black carbon mass
-	percent_BC : percentage of total particle mass which is attributed to black carbon.
+	1. 'Mtot_Mbc' : ratio of total particle mass to black carbon mass
+	2. 'Rbc' : ratio of coating mass to black carbon mass
+	3. 'OC:EC' : ratio of organic carbon mass to black carbon mass
+	4. 'percent_BC' : percentage of total particle mass which is attributed to black carbon.
 	
 	
    **Returns**
