@@ -25,11 +25,10 @@ Functions for single particles
    abs_error : float, optional
 	The errors associated with mass absorption cross-section measurement.
    mode : string, optional
-	Available options:
-		- 'Mtot_Mbc' : ratio of total particle mass to black carbon mass
-		- 'Rbc' : ratio of coating mass to black carbon mass
-		- 'OC:EC' : ratio of organic carbon mass to black carbon mass
-		- 'percent_BC' : percentage of total particle mass which is attributed to black carbon.
+	- 'Mtot_Mbc' : ratio of total particle mass to black carbon mass
+	- 'Rbc' : ratio of coating mass to black carbon mass
+	- 'OC:EC' : ratio of organic carbon mass to black carbon mass
+	- 'percent_BC' : percentage of total particle mass which is attributed to black carbon.
 	
 	
    **Returns**
