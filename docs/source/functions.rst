@@ -22,7 +22,7 @@ Theory
    
    	:math:`{X=x_1+\frac{x_2-x_1}{1+\text{exp}\left[x_3\left(\rho_{BC}-x_4\right)\right]}}`
 	
-   Here :math:`{X}` represents :math:`{D}` or :math:`{E}` and :math:`{x_{[1,2,3,4]}}` represents :math:`{d_{[1,2,3,4]}}` or :math:`{e_{[1,2,3,4]}}`. 
+   Here :math:`{X}` represents :math:`{D}` or :math:`{E}`, and :math:`{x_{[1,2,3,4]}}` represents :math:`{d_{[1,2,3,4]}}` or :math:`{e_{[1,2,3,4]}}`. 
    
 	- :math:`{d_1=5.679\pm0.027}`
 	- :math:`{d_2=1.066\pm0.058}`
@@ -42,7 +42,7 @@ Functions for single particles
 
 .. py:function:: SingleParticle(coating, absorption, wavelength, diameter[, abs_error=0.0, mode='Mtot_Mbc', r_monomer=20.0])
 
-   The core phase shift parameter is determined using the procedure outlined here `above <https://pyfracscatt.readthedocs.io/en/latest/functions.html#theory>`_. The single particle mass is determined using the provided :math:`{d_p}`, assuming the density of black carbon is 1.8 g/cm\ :sup:`3`.
+   The core phase shift parameter is determined using the procedure outlined `above <https://pyfracscatt.readthedocs.io/en/latest/functions.html#theory>`_. The single particle mass is determined using the provided :math:`{d_p}`, assuming the density of black carbon is 1.8 g/cm\ :sup:`3`.
    
    **Parameters**
    
