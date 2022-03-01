@@ -1,4 +1,4 @@
-# pyBCabs
+# pyBCabsorption
 
 Infers morphology of coated black carbon aggregates based on particle mass, mixing state, and mass absorption cross-section.
 
@@ -10,11 +10,11 @@ Infers morphology of coated black carbon aggregates based on particle mass, mixi
 
 ## Documentation
 
-http://pyBCabs_fake.readthedocs.io/en/latest
+http://pyBCabsorption_fake.readthedocs.io/en/latest
 
 ## Installation
 
-	pip install pyBCabs
+	pip install pyBCabsorption
 
 Or clone from source and run
 
