@@ -18,7 +18,7 @@ Functions for single particles
 	
    If :math:`{MAC_{BC}}` is close to the value predicted by the above equation, then :math:`{\rho_{BC}}` can be constrained to 0 < :math:`{\rho_{BC}}` < 1, but cannot be exactly calculated. If the measured :math:`{MAC_{BC}}` is less than what is predicted by the above equation, :math:`{\rho_{BC}}` is then calculated via: 
    
-	:math:`{MAC_{BC}=MAC_0\left (\frac{\lambda}{\lambda_0} \right)^{-AAE}\left[\frac{D}{E+1}\left(\rho_{BC}^{1-E}-1\right)\right]}`
+	:math:`{MAC_{BC}=MAC_0\left (\frac{\lambda}{\lambda_0} \right)^{-AAE}\left[\frac{D}{E+1}\left(\rho_{BC}^{1-E}-1\right)+\frac{D}{1-2E}\left(\rho_{BC}^{1-2E}-1\right)\right]+MAC_{BC}|_{\rho_{BC<1}}}`
    
    
    **Parameters**
@@ -31,7 +31,7 @@ Functions for single particles
    wavelength : float
 	The wavelength of incident light, in nanometers.
    diameter : float
-   	The volume-equivalent diameter, in nanometers.
+   	The volume-equivalent diameter of the black carbon core, in nanometers.
    abs_error : float, optional
 	The errors associated with mass absorption cross-section measurement.
    mode : string, optional
