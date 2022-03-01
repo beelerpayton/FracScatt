@@ -19,7 +19,31 @@ The current version is 0.0.1. You can install PyFracScatt from `The Python Packa
 
    $ pip install PyFracScatt
 
-
 or from `GitHub <https://github.com/beelerpayton/PyFracScatt>`_. Clone the repository and then run ::
 
    $ python setup.py install
+
+Revision Notes - version 0.0.1 (28 February, 2022)
+------------------------------------------------------------------------------
+
+  - Debugging and troubleshooting.
+  
+Revision History - version 0.0.1 (28 February, 2022)
+------------------------------------------------------------------------------
+
+  - Debugging and troubleshooting.
+  
+  Author Contact Information
+--------------------------
+PyFracScatt was written by `Payton Beeler <https://scholar.google.com/citations?user=8Td-XI4AAAAJ&hl=en&oi=ao/>`_.
+
+Email: `beelerpayton@wustl.edu <mailto:beelerpayton@wustl.edu?subject=PyFracScatt>`_
+
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Table of Contents
+   
+   Documentation Home <index>
+   Functions for Single Particles <functions>
+   Example Scripts <examples>
