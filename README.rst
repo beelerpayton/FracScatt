@@ -1,9 +1,13 @@
-Template for the Read the Docs tutorial
-=======================================
+# FracScatt
 
-This GitHub template includes fictional Python library
-with some basic Sphinx docs.
+Infers morphology of coated black carbon aggregates based on measurements of particle mass, mixing state, and mass absorption cross-section.
 
-Read the tutorial here:
+## Dependencies
 
-https://docs.readthedocs.io/en/stable/tutorial/
+  * numpy
+  * scipy
+  * matplotlib
+
+## Documentation
+
+http://fracscatt_fake.readthedocs.io/en/latest
