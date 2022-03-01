@@ -49,5 +49,5 @@ Email: `beelerpayton@wustl.edu <mailto:beelerpayton@wustl.edu?subject=PyFracScat
    :caption: Table of Contents
    
    Documentation Home <index>
-   Functions for Single Particles <functions>
+   Morphology Retrieval <functions>
    Example Scripts <examples>
