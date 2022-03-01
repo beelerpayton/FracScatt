@@ -6,9 +6,13 @@ Functions for single particles
 
 .. py:function:: SingleParticle(coating, absorption, wavelength, diameter[, abs_error=0.0, mode='Mtot_Mbc', r_monomer=20.0])
 
-   Computes core phase shift parameter :math:`{\rho_{BC}}` of fractal black carbon aggregates. Uses particle diameter :math:`{d_p}`, mass absorption cross-section :math:`{MAC_{BC}}`, and mixing state :math:`{M_{tot}/M_{BC}}`, and calculates :math:`{\rho_{BC}}` via:
+   Computes core phase shift parameter :math:`{\rho_{BC}}` of fractal black carbon aggregates. Uses particle diameter :math:`{d_p}`, mass absorption cross-section :math:`{MAC_{BC}}`, and mixing state :math:`{M_{tot}/M_{BC}}`, and calculates :math:`{\rho_{BC}}` by first determining whether the measured :math:`{MAC_{BC}}` is significantly less than that predicted by:
    
 	:math:`{MAC_{BC}=MAC_0\left (\frac{\lambda}{\lambda_0} \right)^{-AAE}\left[1+\frac{AC^{-B}\Gamma(B+1,C)}{C}-\frac{A\left(\frac{M_{tot}}{M_{BC}}\right)^{B}\left(\frac{M_{tot}}{M_{BC}}\right)^{-B}\Gamma\left(B+1,C\frac{M_{tot}}{M_{BC}}\right)}{C}\right]}`
+	
+	- :math:`{A=-1.189\pm0.029}`
+	
+   If :math:`{MAC_{BC}}` is close to the value predicted by the above equation, then :math:`{\rho_{BC}}` can be constrained to 0 < :math:`{\rho_{BC}}` < 1, but cannot be exactly calculated. If the measured :math:`{MAC_{BC}}` is less than what is predicted by the above equation, :math:`{\rho_{BC}}` is then calculated via: 
    
    
    **Parameters**
