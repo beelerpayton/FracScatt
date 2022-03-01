@@ -42,11 +42,11 @@ Theory
    
 	:math:`{R_g=a\left(\frac{m_p}{m_1 k_f}\right)^{\frac{1}{D_f}}}`,
 	
-   where :math:`{a}` is the monomer radius, :math:`{k_f}` is the fractal prefactor (fixed at 1.2), :math:`{m_p}` is the BC mass, and :math:`{m_1}` is the mass of a BC monomer. Both the BC mass and the monomer mass are determined assuming BC density of 1.8 g/cm\ :sup:`3`. Next, the monomer packing fraction :math:`{\phi}` is found using:
+   where :math:`{a}` is the monomer radius, :math:`{k_f}` is the fractal prefactor (fixed at 1.2), :math:`{m_p}` is the BC mass, and :math:`{m_1}` is the mass of a BC monomer. Both the BC mass and the monomer mass are determined assuming BC density of 1.8 g/cm\ :sup:`3`. Next, the monomer packing fraction :math:`{\left(\phi\right)}` is found using:
    
 	:math:`{\phi=k_f\left(\frac{D_f+2}{D_f}\right)^{-\frac{3}{2}}\left(\frac{a}{R_g}\right)^{3-D_f}}`.
 	
-   Finally :math:`{\rho_{BC}}` is given by:
+   Finally, :math:`{\rho_{BC}}` is given by:
 
 	:math:`{\rho_{BC}=\frac{4\pi R_g}{\lambda}\left|m_{eff}-1\right|}`,
 	
