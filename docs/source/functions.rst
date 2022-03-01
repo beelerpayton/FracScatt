@@ -89,3 +89,10 @@ Functions for single particles
    fig : figure
 	Figure showing morphology retrival.
 	
+Functions for black carbon size distribution
+---------------------------------
+
+.. py:function:: SizeDist(coating, absorption, wavelength, diameter[, abs_error=0.0, mode='Mtot_Mbc', r_monomer=20.0])
+
+   
+	
