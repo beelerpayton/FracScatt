@@ -92,7 +92,34 @@ Functions for single particles
 Functions for black carbon size distribution
 ---------------------------------
 
-.. py:function:: SizeDist(coating, absorption, wavelength, diameter[, abs_error=0.0, mode='Mtot_Mbc', r_monomer=20.0])
+.. py:function:: SizeDist(coating, absorption, wavelength, dpg, sigma_g[, abs_error=0.0, mode='Mtot_Mbc', r_monomer=20.0])
 
+   The core phase shift parameter is determined using the procedure outlined `above <https://pyfracscatt.readthedocs.io/en/latest/functions.html#theory>`_. The single particle mass is determined using the provided :math:`{d_p}`, assuming the density of black carbon is 1.8 g/cm\ :sup:`3`.
    
+   **Parameters**
+   
+   coating : float
+	Ratio of total particle mass to black carbon mass.
+   absorption : float
+	The mass absorption cross-section with units of m\ :sup:`2`/g.
+   wavelength : float
+	The wavelength of incident light, in nanometers.
+   dpg : float
+   	The volume-equivalent geometric mean black carbon diameter (lognormal distribution), in nanometers.
+   sigma_g : float
+   	The geometric standard deviation of black carbon diameter (lognormal distribution).
+   abs_error : float, optional
+	The errors associated with mass absorption cross-section measurement.
+   mode : string, optional
+	- 'Mtot_Mbc' : ratio of total particle mass to black carbon mass
+	- 'Rbc' : ratio of coating mass to black carbon mass
+	- 'OC:EC' : ratio of organic carbon mass to black carbon mass
+	- 'percent_BC' : percentage of total particle mass which is attributed to black carbon.
+	
+   **Returns**
+   
+   mass, rho : float
+	The single particle back carbon mass and core phase shift parameter.
+   fig : figure
+	Figure showing morphology retrival.
 	
