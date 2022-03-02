@@ -80,10 +80,13 @@ Functions for single particles
 	
    **Returns**
    
-   mass, rho : float
-	The single particle back carbon mass and core phase shift parameter.
    fig : figure
-	Figure showing morphology retrival.
+	If ReturnPlot==True, figure showing morphology retrival.
+   mass, rho : float
+	The single particle back carbon mass in fg and core phase shift parameter.
+   c : dict
+	If asDict==True, returns a dict of mass and core phase shift parameter with appropriate keys.
+
 	
 Functions for black carbon size distribution
 ---------------------------------
