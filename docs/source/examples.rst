@@ -6,12 +6,12 @@ Example Scripts
 Morphology of of a Single Black Carbon Particle
 -------------------------------------------------
 
-To infer the morphology of a single BC particle, use the :py:func:`SingleParticle` function.
+To infer the morphology of a single BC particle, use the :py:func:`SingleParticle` function. This example shows a particle with volume-equivalent diameter of 250nm, M:sub:`tot`/M:sub:`BC` of 10, and MAC:sub:`BC` of 20 m:sup:`2`/g measured at 405 nm.
 
 .. code-block:: pycon
    
    >>> import pyBCabsorption as pbca
-   >>> pbca.MieQ(1.5+0.5j,532,200,asDict=True)
+   >>> pbca.SingleParticle(1.5+0.5j,532,200,asDict=True)
    {'Qabs': 1.2206932456722366,
     'Qback': 0.2557593071989655,
     'Qext': 1.6932375984850729,
