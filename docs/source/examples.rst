@@ -29,28 +29,28 @@ If you wish to plot multiple particle-resolved measurements, this can also be do
 
 .. code-block:: pycon
    
-    wl=532 #wavlength
-    dp=np.logspace(np.log10(150),np.log10(250),10) #example BC diameter measurements
-    M=10 #coating amount
-    p_avg=np.zeros(len(dp))
-    lower=np.zeros(len(dp))
-    upper=np.zeros(len(dp))
-    mass=np.zeros(len(dp))
+   wl=532 #wavlength
+   dp=np.logspace(np.log10(150),np.log10(250),10) #example BC diameter measurements
+   M=10 #coating amount
+   p_avg=np.zeros(len(dp))
+   lower=np.zeros(len(dp))
+   upper=np.zeros(len(dp))
+   mass=np.zeros(len(dp))
         
-    fig, ax, result = pbca.abs2shape_SP(1,5,wl,250,abs_error=1.0,ReturnPlot=True,PlotPoint=False)
+   fig, ax, result = pbca.abs2shape_SP(1,5,wl,250,abs_error=1.0,ReturnPlot=True,PlotPoint=False)
     
-    for i in range(0,len(dp)):
+   for i in range(0,len(dp)):
         
-        MAC=np.random.normal(0.8,0.1)*15
-        result=pbca.abs2shape_SP(M,MAC,wl,dp[i],abs_error=1.0,ReturnPlot=False,PlotPoint=False)
-        mass[i]=result['mass']
-        p_avg[i]=result['rho']
-        lower[i]=result['rho']-result['rho_lower']
-        upper[i]=result['rho_upper']-result['rho']
+       MAC=np.random.normal(0.8,0.1)*15
+       result=pbca.abs2shape_SP(M,MAC,wl,dp[i],abs_error=1.0,ReturnPlot=False,PlotPoint=False)
+       mass[i]=result['mass']
+       p_avg[i]=result['rho']
+       lower[i]=result['rho']-result['rho_lower']
+       upper[i]=result['rho_upper']-result['rho']
 
-    errors=np.row_stack((lower,upper))
-    ax.errorbar(mass, p_avg, yerr=errors, markersize=7, fmt = 's', mfc='b', mec = 'k', capsize=4, ecolor = 'b', elinewidth=1.5, mew=1.5)
-    plt.show()
+   errors=np.row_stack((lower,upper))
+   ax.errorbar(mass, p_avg, yerr=errors, markersize=7, fmt = 's', mfc='b', mec = 'k', capsize=4, ecolor = 'b', elinewidth=1.5, mew=1.5)
+   plt.show()
     
 The above code will generate a plot similar to this:
 
