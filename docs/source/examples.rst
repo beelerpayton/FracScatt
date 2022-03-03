@@ -54,7 +54,7 @@ If you wish to plot multiple particle-resolved measurements, this can also be do
     
 The above code will generate a plot similar to this:
 
-.. image:: images/ex2.png
+.. image:: images/ex1c.png
 
 Absorption of of a Single Black Carbon Particle
 -----------------------------------------
