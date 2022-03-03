@@ -60,42 +60,6 @@ Theory
 Functions for single particles
 ---------------------------------
 
-.. py:function:: shape2abs_SP(dp, coating, wavelength, collapse, [mode='MtotMbc', r_monomer=20, asDict=True])
-
-   Black carbon volume-equivalent diameter, coating amount, and morphology are input and MAC\ :sub:`BC` is calculated using the procedure outlined `above <https://pyBCabs.readthedocs.io/en/latest/functions.html#theory>`_. The particle mass is determined assuming the density of black carbon is 1.8 g/cm\ :sup:`3`.
-   
-   **Parameters**
-   
-   dp : float
-	Black carbon volume-equivalent diameter with units of nm.
-   coating : float
-	Coating amount with units matching that of the optional 'mode' input. Default is ratio of total particle mass to black carbon mass.
-   wavelength : float
-	The wavelength of incident light, in nanometers.
-   collapse : string
-   	- 'fresh' : black carbon morphology matches fresh soot with fractal dimension of 1.8.
-	- 'partial' : black carbon core has partially collapsed, fractal dimension of 2.5.
-	- 'full' : black carbon core has fully collapsed, fractal dimension of 3.0.
-   mode : string, optional
-	- 'Mtot_Mbc' : ratio of total particle mass to black carbon mass
-	- 'Rbc' : ratio of coating mass to black carbon mass
-	- 'OC:EC' : ratio of organic carbon mass to black carbon mass
-	- 'percent_BC' : percentage of total particle mass which is attributed to black carbon.
-   r_monomer : float, optional
-	Radius of monomers, in nanometers.
-   asDict : bool, optional
-	If true, returns dict of output variables.
-	
-   **Returns**
-   
-   dp : float
-	Volume-equivalent diameter of particle in nm.
-   coating : float
-	Amount of coating with same units as input.
-   MAC : float
-	MAC\ :sub:`BC` with units of m\ :sup:`2`/g.
-
-
 .. py:function:: abs2shape_SP(coating, absorption, wavelength, diameter, [abs_error=0.0, mode='MtotMbc', r_monomer=20, asDict=True, ReturnPlot=True, PlotPoint=True])
 
    Black carbon volume-equivalent diameter, coating amount, and MAC\ :sub:`BC` are input and morpholgy is inferred using the procedure outlined `above <https://pyBCabs.readthedocs.io/en/latest/functions.html#theory>`_. The particle mass is determined assuming the density of black carbon is 1.8 g/cm\ :sup:`3`.
@@ -139,25 +103,16 @@ Functions for single particles
    rho_upper : float
 	Upper limit of core phase shift parameter, based on average MAC\ :sub:`BC` and MAC\ :sub:`BC` errors.
 	
+.. py:function:: shape2abs_SP(dp, coating, wavelength, collapse, [mode='MtotMbc', r_monomer=20, asDict=True])
 
-
-Functions for black carbon size distributions
----------------------------------
-
-.. py:function:: shape2abs_SD(dpg, sigma_g, coating_avg, coating_stdev, wavelength, collapse, [mode='MtotMbc', r_monomer=20, DataPoints=False, ShowPlots=True])
-
-   Black carbon volume-equivalent lognormal size distribution, coating distribution, and morphology are input and distribution of MAC\ :sub:`BC` is calculated using the procedure outlined `above <https://pyBCabs.readthedocs.io/en/latest/functions.html#theory>`_. The particle mass is determined assuming the density of black carbon is 1.8 g/cm\ :sup:`3`.
+   Black carbon volume-equivalent diameter, coating amount, and morphology are input and MAC\ :sub:`BC` is calculated using the procedure outlined `above <https://pyBCabs.readthedocs.io/en/latest/functions.html#theory>`_. The particle mass is determined assuming the density of black carbon is 1.8 g/cm\ :sup:`3`.
    
    **Parameters**
    
-   dpg : float
-	Black carbon geometric mean volume-equivalent diameter of lognormal distribution with units of nm.
-   sigma_g : float
-	Geometric standard deviation of black carbon lognormal size distribution
-   coating_avg : float
-	Average value of coating amount, assuming a Gaussian normal distribution. Units should match that of the optional 'mode' input, default is ratio of total particle mass to black carbon mass.
-   coating_stdev : float
-   	Stabdard deviation of coating amount, assuming a Gaussian normal distribution.
+   dp : float
+	Black carbon volume-equivalent diameter with units of nm.
+   coating : float
+	Coating amount with units matching that of the optional 'mode' input. Default is ratio of total particle mass to black carbon mass.
    wavelength : float
 	The wavelength of incident light, in nanometers.
    collapse : string
@@ -171,22 +126,20 @@ Functions for black carbon size distributions
 	- 'percent_BC' : percentage of total particle mass which is attributed to black carbon.
    r_monomer : float, optional
 	Radius of monomers, in nanometers.
-   DataPoints : bool, optional
+   asDict : bool, optional
 	If true, returns dict of output variables.
-   ShowPlots : bool, optional
-	If true, shows histograms of input parameters and calculated MAC\ :sub:`BC`.
 	
    **Returns**
    
    dp : float
-   	- If DataPoints==True, volume-equivalent black carbon diameters used in calculations, in nm.
-	- If DataPoints==False, average and standard deviation of volume-equivalent black carbon diameters used in calculations, in nm.
+	Volume-equivalent diameter of particle in nm.
    coating : float
-   	- If DataPoints==True, coating amounts used in calculations, with units matching those of 'mode' option.
-	- If DataPoints==False, average and standard deviation of coating amounts used in calculations, with units matching those of 'mode' option.
+	Amount of coating with same units as input.
    MAC : float
-   	- If DataPoints==True, calculated MAC\ :sub:`BC` values, in  m\ :sup:`2`/g.
-	- If DataPoints==False, average and standard deviation of calculated MAC\ :sub:`BC` values, in  m\ :sup:`2`/g.
+	MAC\ :sub:`BC` with units of m\ :sup:`2`/g.
+
+Functions for black carbon size distributions
+---------------------------------
 
 .. py:function:: abs2shape_SD(coating, absorption, wavelength, dpg, sigma_g, [abs_error=0.0, mode='MtotMbc', r_monomer=20, asDict=True, ReturnPlot=True])
 
@@ -234,4 +187,47 @@ Functions for black carbon size distributions
 	Average core phase shift parameter, based on average MAC\ :sub:`BC`.
    rho_upper : float
 	Upper limit of core phase shift parameter, based on average MAC\ :sub:`BC` and MAC\ :sub:`BC` errors.
+
+.. py:function:: shape2abs_SD(dpg, sigma_g, coating_avg, coating_stdev, wavelength, collapse, [mode='MtotMbc', r_monomer=20, DataPoints=False, ShowPlots=True])
+
+   Black carbon volume-equivalent lognormal size distribution, coating distribution, and morphology are input and distribution of MAC\ :sub:`BC` is calculated. Black carbon diameter and coating amount are randomly sampled per the input distributions, and MAC\ :sub:`BC` is calculated using the procedure outlined `above <https://pyBCabs.readthedocs.io/en/latest/functions.html#theory>`_. The particle mass is determined assuming the density of black carbon is 1.8 g/cm\ :sup:`3`.
+   
+   **Parameters**
+   
+   dpg : float
+	Black carbon geometric mean volume-equivalent diameter of lognormal distribution with units of nm.
+   sigma_g : float
+	Geometric standard deviation of black carbon lognormal size distribution
+   coating_avg : float
+	Average value of coating amount, assuming a Gaussian normal distribution. Units should match that of the optional 'mode' input, default is ratio of total particle mass to black carbon mass.
+   coating_stdev : float
+   	Stabdard deviation of coating amount, assuming a Gaussian normal distribution.
+   wavelength : float
+	The wavelength of incident light, in nanometers.
+   collapse : string
+   	- 'fresh' : black carbon morphology matches fresh soot with fractal dimension of 1.8.
+	- 'partial' : black carbon core has partially collapsed, fractal dimension of 2.5.
+	- 'full' : black carbon core has fully collapsed, fractal dimension of 3.0.
+   mode : string, optional
+	- 'Mtot_Mbc' : ratio of total particle mass to black carbon mass
+	- 'Rbc' : ratio of coating mass to black carbon mass
+	- 'OC:EC' : ratio of organic carbon mass to black carbon mass
+	- 'percent_BC' : percentage of total particle mass which is attributed to black carbon.
+   r_monomer : float, optional
+	Radius of monomers, in nanometers.
+   DataPoints : bool, optional
+	If true, returns dict of output variables.
+   ShowPlots : bool, optional
+	If true, shows histograms of input parameters and calculated MAC\ :sub:`BC`.
 	
+   **Returns**
+   
+   dp : float
+   	- If DataPoints==True, volume-equivalent black carbon diameters used in calculations, in nm.
+	- If DataPoints==False, average and standard deviation of volume-equivalent black carbon diameters used in calculations, in nm.
+   coating : float
+   	- If DataPoints==True, coating amounts used in calculations, with units matching those of 'mode' option.
+	- If DataPoints==False, average and standard deviation of coating amounts used in calculations, with units matching those of 'mode' option.
+   MAC : float
+   	- If DataPoints==True, calculated MAC\ :sub:`BC` values, in  m\ :sup:`2`/g.
+	- If DataPoints==False, average and standard deviation of calculated MAC\ :sub:`BC` values, in  m\ :sup:`2`/g.
