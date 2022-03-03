@@ -1,10 +1,10 @@
-Morphology Retrieval for Internally Mixed Black Carbon Aggregates
+Functions for Internally Mixed Black Carbon Aggregates
 =============================================================
 
 Theory 
 ---------------------------------
 
-   This package computes the core phase shift parameter :math:`{\left(\rho_{BC}\right)}` to infer the morphology of fractal black carbon aggregates using the particle diameter :math:`{\left(d_p\right)}`, mass absorption cross-section :math:`{\left(MAC_{BC}\right)}`, and mixing state :math:`{\left(M_{tot}/M_{BC}\right)}`. First, :math:`{\rho_{BC}}` is constrained by determining whether the measured mass absorption cross-section :math:`{\left(MAC_{BC,meas}\right)}` is significantly less than that given by:
+   This package computes the core phase shift parameter (:math:`{\rho}`\ :sub:`BC`) to infer the morphology of fractal black carbon aggregates using the particle diameter (d\ :sub:`p`), mass absorption cross-section (MAC\ :sub:`BC`), and mixing state (M\ :sub:`tot`/M\ :sub:`BC`). It should be noted that in this package, MAC\ :sub:`BC` is defined as the absorption cross-section per unit mass of black carbon. First, :math:`{\rho}`\ :sub:`BC` is constrained by determining whether the measured mass absorption cross-section (MAC\ :sub:`BC,meas`) is significantly less than that given by:
    :math:`{MAC_{BC,pred}=MAC_0\left (\frac{\lambda}{\lambda_0} \right)^{-AAE}\left[1+\frac{AC^{-B}\Gamma(B+1,C)}{C}-\frac{A\left(\frac{M_{tot}}{M_{BC}}\right)^{B}\left(\frac{M_{tot}}{M_{BC}}\right)^{-B}\Gamma\left(B+1,C\frac{M_{tot}}{M_{BC}}\right)}{C}\right]}`.	
 	- :math:`{A=-1.189\pm0.029}`
 	- :math:`{B=-0.674\pm0.006}`
@@ -60,12 +60,12 @@ Functions for single particles
 
 .. py:function:: shape2abs_SP(dp, coating, wavelength, collapse, [mode='MtotMbc', r_monomer=20, asDict=True])
 
-   Particle shape is input and its mass absorption cross-section is calculated using the procedure outlined `above <https://pyfracscatt.readthedocs.io/en/latest/functions.html#theory>`_. The particle mass is determined assuming the density of black carbon is 1.8 g/cm\ :sup:`3`.
+   Particle shape is input and its mass absorption cross-section is calculated using the procedure outlined `above <https://pyBCabs.readthedocs.io/en/latest/functions.html#theory>`_. The particle mass is determined assuming the density of black carbon is 1.8 g/cm\ :sup:`3`.
    
    **Parameters**
    
    dp : float
-	Black carbon core diameter with units of nm.
+	Black carbon volume-equivalent diameter with units of nm.
    coating : float
 	Coating amount with units matching that of the optional 'mode' input. Default is ratio of total particle mass to black carbon mass.
    wavelength : float
@@ -87,13 +87,58 @@ Functions for single particles
    **Returns**
    
    dp : float
-	Diameter of particle in nm.
+	Volume-equivalent diameter of particle in nm.
    coating : float
 	Amount of coating with same units as input.
    MAC : float
-	Mass absorption cross-section with units of m\ :sup:`2`/g.
+	MAC\ :sub:`BC` with units of m\ :sup:`2`/g.
 
+
+.. py:function:: abs2shape_SP(coating, absorption, wavelength, diameter, [abs_error=0.0, mode='MtotMbc', r_monomer=20, asDict=True, ReturnPlot=True, PlotPoint=True])
+
+   Particle absorption is input and its mass morpholgy is inferred using the procedure outlined `above <https://pyBCabs.readthedocs.io/en/latest/functions.html#theory>`_. The particle mass is determined assuming the density of black carbon is 1.8 g/cm\ :sup:`3`.
+   
+   **Parameters**
+   
+   coating: 
+	Coating amount with units matching that of the optional 'mode' input. Default is ratio of total particle mass to black carbon mass.
+   absorption:
+	MAC\ :sub:`BC` with units of m\ :sup:`2`/g.
+   wavelength : float
+	The wavelength of incident light, in nanometers.
+   diameter : float
+	Black carbon volume-equivalent diameter with units of nm.
+   abs_error : float, optional
+	Error associated with measurement of MAC\ :sub:`BC`, in  m\ :sup:`2`/g.
+   mode : string, optional
+	- 'Mtot_Mbc' : ratio of total particle mass to black carbon mass.
+	- 'Rbc' : ratio of coating mass to black carbon mass.
+	- 'OC:EC' : ratio of organic carbon mass to black carbon mass.
+	- 'percent_BC' : percentage of total particle mass which is attributed to black carbon.
+   r_monomer : float, optional
+	Radius of monomers, in nanometers.
+   asDict : bool, optional
+	If true, returns dict of output variables.
+   ReturnPlot : bool, optional
+	If true, returns figure and axes with morphology retrival plot.
+   PlotPoint : bool, optional
+	If true, shows measured particle on morphology retrival plot.
 	
+   **Returns**
+   
+   fig, ax : figure, axes
+	Figure and axes with morphology retrival plot. If PlotPoint==True, then particle is shown on morphology retrieval plot.
+   mass : float
+	Mass of particle, in fg.
+   rho_lower : float
+	Lower limit of core phase shift parameter, based on average MAC\ :sub:`BC` and MAC\ :sub:`BC` errors.
+   rho_avg : float
+	Average core phase shift parameter, based on average MAC\ :sub:`BC`.
+   rho_upper : float
+	Upper limit of core phase shift parameter, based on average MAC\ :sub:`BC` and MAC\ :sub:`BC` errors.
+	
+
+
 Functions for black carbon size distribution
 ---------------------------------
 
