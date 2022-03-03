@@ -59,3 +59,15 @@ The above code will generate a plot similar to this:
 Absorption of of a Single Black Carbon Particle
 -----------------------------------------
 
+To calculate MAC\ :sub:`BC` of a single particle, use the :py:func:`shape2abs_SP` function. This example shows a partially collapsed BC particle with volume-equivalent diameter of 250nm and M\ :sub:`tot`/M\ :sub:`BC` of 10, calculated at 532 nm.
+
+.. code-block:: pycon
+   
+   >>> import pyBCabsorption as pbca
+   >>> pbca.shape2abs_SP(250, 10, 532, 'partial', mode='MtotMbc', r_monomer=20, asDict=True)
+   {'dp': 250,
+   'coating': 10,
+   'MAC': 15.270921290660958}
+   
+   
+   
