@@ -4,7 +4,7 @@ Morphology Retrieval for Internally Mixed Black Carbon Aggregates
 Theory 
 ---------------------------------
 
-   This package computes the core phase shift parameter :math:`{\left(\rho_{BC}\right)}` and infers the morphology of fractal black carbon aggregates using the particle diameter :math:`{\left(d_p\right)}`, mass absorption cross-section :math:`{\left(MAC_{BC}\right)}`, and mixing state :math:`{\left(M_{tot}/M_{BC}\right)}`. First, :math:`{\rho_{BC}}` is constrained by determining whether the measured mass absorption cross-section :math:`{\left(MAC_{BC,meas}\right)}` is significantly less than that given by:
+   This package computes the core phase shift parameter :math:`{\left(\rho_{BC}\right)}` to infer the morphology of fractal black carbon aggregates using the particle diameter :math:`{\left(d_p\right)}`, mass absorption cross-section :math:`{\left(MAC_{BC}\right)}`, and mixing state :math:`{\left(M_{tot}/M_{BC}\right)}`. First, :math:`{\rho_{BC}}` is constrained by determining whether the measured mass absorption cross-section :math:`{\left(MAC_{BC,meas}\right)}` is significantly less than that given by:
    :math:`{MAC_{BC,pred}=MAC_0\left (\frac{\lambda}{\lambda_0} \right)^{-AAE}\left[1+\frac{AC^{-B}\Gamma(B+1,C)}{C}-\frac{A\left(\frac{M_{tot}}{M_{BC}}\right)^{B}\left(\frac{M_{tot}}{M_{BC}}\right)^{-B}\Gamma\left(B+1,C\frac{M_{tot}}{M_{BC}}\right)}{C}\right]}`.	
 	- :math:`{A=-1.189\pm0.029}`
 	- :math:`{B=-0.674\pm0.006}`
@@ -32,7 +32,7 @@ Theory
    
    Details on the derivation of the above equations are `available here <https://doi.org/10.1016/j.jqsrt.2017.10.012>`_.
    
-   The morphology of of the measured black carbon aggregates are determined by comparing the calculated :math:`{\rho_{BC}}` to three cases. The first case is that of freshly emitted black carbon, which has fractal dimension :math:`{\left(D_f\right)}` of 1.8. The second case is black carbon which has partially collapsed, and has :math:`{D_f}` of 2.5. The final case is black carbon which has fully collapsed (but not sintered), and has :math:`{D_f}` of 3.0. 
+   The morphology of of the measured black carbon aggregates can be determined by comparing the calculated :math:`{\rho_{BC}}` to three cases. The first case is that of freshly emitted black carbon, which has fractal dimension :math:`{\left(D_f\right)}` of 1.8. The second case is black carbon which has partially collapsed, and has :math:`{D_f}` of 2.5. The final case is black carbon which has fully collapsed (but not sintered), and has :math:`{D_f}` of 3.0. 
    
    The core phase shift parameter of black carbon aggregates with morphologies outlined above is found by first determining their radius of gyration :math:`{\left(R_g\right)}`, given by:
    
@@ -51,41 +51,47 @@ Theory
 	:math:`{\phi\left(\frac{m^2-1}{m^2+2}\right)=\left(\frac{m_{eff}^2-1}{m_{eff}^2+2}\right)}`.
 
    Here, :math:`{m}` is the refractive index of black carbon, :math:`{1.95+0.79i}`. The core phase shift parameter and mass of the measured black carbon aggregates is then compared to the three cases described above, allowing for inference of particle morphology.
+   
+   In a similar manner, users can supply the morphology, mixing state, and particle diameter, and the mass absorption cross-section can be calculated based on the core phase shift parameter.
 
 
 Functions for single particles
 ---------------------------------
 
-.. py:function:: SingleParticle(coating, absorption, wavelength, diameter[, abs_error=0.0, mode='Mtot_Mbc', r_monomer=20.0])
+.. py:function:: shape2abs_SP(dp, coating, wavelength, collapse, [mode='MtotMbc', r_monomer=20, asDict=True])
 
-   The core phase shift parameter is determined using the procedure outlined `above <https://pyfracscatt.readthedocs.io/en/latest/functions.html#theory>`_. The single particle mass is determined using the provided :math:`{d_p}`, assuming the density of black carbon is 1.8 g/cm\ :sup:`3`.
+   Particle shape is input and its mass absorption cross-section is calculated using the procedure outlined `above <https://pyfracscatt.readthedocs.io/en/latest/functions.html#theory>`_. The particle mass is determined assuming the density of black carbon is 1.8 g/cm\ :sup:`3`.
    
    **Parameters**
    
+   dp : float
+	Black carbon core diameter with units of nm.
    coating : float
-	Ratio of total particle mass to black carbon mass.
-   absorption : float
-	The mass absorption cross-section with units of m\ :sup:`2`/g.
+	Coating amount with units matching that of the optional 'mode' input. Default is ratio of total particle mass to black carbon mass.
    wavelength : float
 	The wavelength of incident light, in nanometers.
-   diameter : float
-   	The volume-equivalent diameter of the black carbon core, in nanometers.
-   abs_error : float, optional
-	The errors associated with mass absorption cross-section measurement.
+   collapse : string
+   	- 'fresh' : black carbon morphology matches fresh soot with fractal dimension of 1.8.
+	- 'partial' : black carbon core has partially collapsed, fractal dimension of 2.5.
+	- 'full' : black carbon core has fully collapsed, fractal dimension of 3.0.
    mode : string, optional
 	- 'Mtot_Mbc' : ratio of total particle mass to black carbon mass
 	- 'Rbc' : ratio of coating mass to black carbon mass
 	- 'OC:EC' : ratio of organic carbon mass to black carbon mass
 	- 'percent_BC' : percentage of total particle mass which is attributed to black carbon.
+   r_monomer : float, optional
+	Radius of monomers, in nanometers.
+   asDict : bool, optional
+	If true, returns dict of output variables.
 	
    **Returns**
    
-   fig : figure
-	If ReturnPlot==True, figure showing morphology retrival.
-   mass, rho : float
-	The single particle back carbon mass in fg and core phase shift parameter.
-   c : dict
-	If asDict==True, returns a dict of mass and core phase shift parameter with appropriate keys.
+   dp : float
+	Diameter of particle in nm.
+   coating : float
+	Amount of coating with same units as input.
+   MAC : float
+	Mass absorption cross-section with units of m\ :sup:`2`/g.
 
 	
 Functions for black carbon size distribution
