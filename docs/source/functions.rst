@@ -5,6 +5,7 @@ Theory
 ---------------------------------
 
    This package computes the core phase shift parameter (:math:`{\rho}`\ :sub:`BC`) to infer the morphology of fractal black carbon aggregates using the particle diameter (d\ :sub:`p`), mass absorption cross-section (MAC\ :sub:`BC`), and mixing state (M\ :sub:`tot`/M\ :sub:`BC`). It should be noted that in this package, MAC\ :sub:`BC` is defined as the absorption cross-section per unit mass of black carbon. First, :math:`{\rho}`\ :sub:`BC` is constrained by determining whether the measured mass absorption cross-section (MAC\ :sub:`BC,meas`) is significantly less than that given by:
+   
    :math:`{MAC_{BC,pred}=MAC_0\left (\frac{\lambda}{\lambda_0} \right)^{-AAE}\left[1+\frac{AC^{-B}\Gamma(B+1,C)}{C}-\frac{A\left(\frac{M_{tot}}{M_{BC}}\right)^{B}\left(\frac{M_{tot}}{M_{BC}}\right)^{-B}\Gamma\left(B+1,C\frac{M_{tot}}{M_{BC}}\right)}{C}\right]}`.	
 	- :math:`{A=-1.189\pm0.029}`
 	- :math:`{B=-0.674\pm0.006}`
@@ -12,7 +13,8 @@ Theory
 	- :math:`{MAC_0=6.819\pm0.131}`
 	- :math:`{AAE=1.231\pm0.005}`
 	
-   If :math:`{MAC_{BC,meas}}` is within 10% of :math:`{MAC_{BC,pred}}`, then :math:`{\rho_{BC}}` can be constrained to 0 < :math:`{\rho_{BC}}` < 1, but cannot be exactly calculated. If :math:`{MAC_{BC,meas}}` is less than 90% of :math:`{MAC_{BC,pred}}`, then :math:`{\rho_{BC}}` is calculated by solving:   
+   If MAC\ :sub:`BC,meas` is within 10% of MAC\ :sub:`BC,pred`, then :math:`{\rho}`\ :sub:`BC` can be constrained to 0 < :math:`{\rho}`\ :sub:`BC` < 1, but cannot be exactly calculated. If MAC\ :sub:`BC,meas` is less than 90% of MAC\ :sub:`BC,pred`, then :math:`{\rho}`\ :sub:`BC` is calculated by solving:   
+   
    :math:`{MAC_{BC,meas}=MAC_0\left (\frac{\lambda}{\lambda_0} \right)^{-AAE}\left[\frac{D}{E+1}\left(\rho_{BC}^{1-E}-1\right)+\frac{D}{1-2E}\left(\rho_{BC}^{1-2E}-1\right)\right]+MAC_{BC,pred}}`.
    Where :math:`{D}` and :math:`{E}` are sigmoid functions, given by:
    
@@ -32,17 +34,17 @@ Theory
    
    Details on the derivation of the above equations are `available here <https://doi.org/10.1016/j.jqsrt.2017.10.012>`_.
    
-   The morphology of of the measured black carbon aggregates can be determined by comparing the calculated :math:`{\rho_{BC}}` to three cases. The first case is that of freshly emitted black carbon, which has fractal dimension :math:`{\left(D_f\right)}` of 1.8. The second case is black carbon which has partially collapsed, and has :math:`{D_f}` of 2.5. The final case is black carbon which has fully collapsed (but not sintered), and has :math:`{D_f}` of 3.0. 
+   The morphology of of the measured black carbon aggregates can be determined by comparing the calculated :math:`{\rho}`\ :sub:`BC` to three cases. The first case is that of freshly emitted black carbon, which has fractal dimension (D\ :sub:`f`) of 1.8. The second case is black carbon which has partially collapsed, and has D\ :sub:`f` of 2.5. The final case is black carbon which has fully collapsed (but not sintered), and has D\ :sub:`f` of 3.0. 
    
-   The core phase shift parameter of black carbon aggregates with morphologies outlined above is found by first determining their radius of gyration :math:`{\left(R_g\right)}`, given by:
+   The core phase shift parameter of black carbon aggregates with morphologies outlined above is found by first determining their radius of gyration R\ :sub:`g`, given by:
    
 	:math:`{R_g=a\left(\frac{m_p}{m_1 k_f}\right)^{\frac{1}{D_f}}}`,
 	
-   where :math:`{a}` is the monomer radius, :math:`{k_f}` is the fractal prefactor (fixed at 1.2), :math:`{m_p}` is the BC mass, and :math:`{m_1}` is the mass of a BC monomer. Both the BC mass and the monomer mass are determined assuming BC density of 1.8 g/cm\ :sup:`3`. Next, the monomer packing fraction :math:`{\left(\phi\right)}` is found using:
+   where :math:`{a}` is the monomer radius, k\ :sub:`f` is the fractal prefactor (fixed at 1.2), m\ :sub:`p` is the black carbon mass, and m\ :sub:`1` is the mass of a BC monomer. Both the BC mass and the monomer mass are determined assuming BC density of 1.8 g/cm\ :sup:`3`. Next, the monomer packing fraction :math:`{\left(\phi\right)}` is found using:
    
 	:math:`{\phi=k_f\left(\frac{D_f+2}{D_f}\right)^{-\frac{3}{2}}\left(\frac{a}{R_g}\right)^{3-D_f}}`.
 	
-   Finally, :math:`{\rho_{BC}}` is given by:
+   Finally, :math:`{\rho}`\ :sub:`BC` is given by:
 
 	:math:`{\rho_{BC}=\frac{4\pi R_g}{\lambda}\left|m_{eff}-1\right|}`,
 	
@@ -60,7 +62,7 @@ Functions for single particles
 
 .. py:function:: shape2abs_SP(dp, coating, wavelength, collapse, [mode='MtotMbc', r_monomer=20, asDict=True])
 
-   Particle shape is input and its mass absorption cross-section is calculated using the procedure outlined `above <https://pyBCabs.readthedocs.io/en/latest/functions.html#theory>`_. The particle mass is determined assuming the density of black carbon is 1.8 g/cm\ :sup:`3`.
+   Black carbon volume-equivalent diameter, coating amount, and morphology are input and MAC\ :sub:`BC` is calculated using the procedure outlined `above <https://pyBCabs.readthedocs.io/en/latest/functions.html#theory>`_. The particle mass is determined assuming the density of black carbon is 1.8 g/cm\ :sup:`3`.
    
    **Parameters**
    
@@ -96,7 +98,7 @@ Functions for single particles
 
 .. py:function:: abs2shape_SP(coating, absorption, wavelength, diameter, [abs_error=0.0, mode='MtotMbc', r_monomer=20, asDict=True, ReturnPlot=True, PlotPoint=True])
 
-   Particle absorption is input and its mass morpholgy is inferred using the procedure outlined `above <https://pyBCabs.readthedocs.io/en/latest/functions.html#theory>`_. The particle mass is determined assuming the density of black carbon is 1.8 g/cm\ :sup:`3`.
+   Black carbon volume-equivalent diameter, coating amount, and MAC\ :sub:`BC` are input and morpholgy is inferred using the procedure outlined `above <https://pyBCabs.readthedocs.io/en/latest/functions.html#theory>`_. The particle mass is determined assuming the density of black carbon is 1.8 g/cm\ :sup:`3`.
    
    **Parameters**
    
