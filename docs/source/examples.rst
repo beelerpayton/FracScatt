@@ -6,19 +6,18 @@ Example Scripts
 Morphology of of a Single Black Carbon Particle
 -------------------------------------------------
 
-To infer the morphology of a single BC particle, use the :py:func:`SingleParticle` function. This example shows a particle with volume-equivalent diameter of 250nm, M:sub:`tot`/M:sub:`BC` of 10, and MAC:sub:`BC` of 20 m:sup:`2`/g measured at 405 nm.
+To infer the morphology of a single BC particle, use the :py:func:`abs2shape_SP` function. This example shows a particle with volume-equivalent diameter of 250nm, M\ :sub:`tot`/M\ :sub:`BC` of 10, and MAC\ :sub:`BC` of 12.5 m\ :sup:`2`/g measured at 532 nm.
 
 .. code-block:: pycon
    
    >>> import pyBCabsorption as pbca
-   >>> pbca.SingleParticle(1.5+0.5j,532,200,asDict=True)
-   {'Qabs': 1.2206932456722366,
-    'Qback': 0.2557593071989655,
-    'Qext': 1.6932375984850729,
-    'Qpr': 1.5442174328606282,
-    'Qratio': 0.5412387338385265,
-    'Qsca': 0.47254435281283641,
-    'g': 0.3153569918620277}
+   >>> pbca.abs2shape_SP(10,12.5,532,250,ReturnPlot=False,PlotPoint=True)
+   {'mass': 14.726215563702151,
+   'rho_lower': 1.6958737655127754,
+   'rho': 1.6958737655127754,
+   'rho_upper': 1.6958737655127754}
+
+.. image:: images/ex1.png
 
 
 Mie Efficencies of a Weibull Distribution
