@@ -95,7 +95,7 @@ The above code will generate the following plot:
 Absorption of of a Black Carbon Size Distribution
 -----------------------------------------
 
-To calculate MAC\ :sub:`BC` of a lognormal black carbon size distribution, use the :py:func:`shape2abs_SD` function. This example shows a partially collapsed black carbon size distribution with geometric mean volume-equivalent diameter of 250nm and M\ :sub:`tot`/M\ :sub:`BC` of 10 +- 2, calculated at 532 nm.
+To calculate MAC\ :sub:`BC` of a lognormal black carbon size distribution, use the :py:func:`shape2abs_SD` function. This example shows a partially collapsed black carbon size distribution with geometric mean volume-equivalent diameter of 250nm, geometric standard deviation of 1.5, and M\ :sub:`tot`/M\ :sub:`BC` of 10 (with standard deviation of 2), calculated at 532 nm.
 
 .. code-block:: pycon
    
