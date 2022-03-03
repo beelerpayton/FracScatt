@@ -17,7 +17,7 @@ To infer the morphology of a single BC particle, use the :py:func:`abs2shape_SP`
    'rho': 1.6958737655127754,
    'rho_upper': 1.6958737655127754}
 
-With the following image:
+This particle has With the following image:
 
 .. image:: images/ex1.png
 
