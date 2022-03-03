@@ -1,6 +1,7 @@
 # pyBCabs
 
-Infers morphology of coated black carbon aggregates based on particle mass, mixing state, and mass absorption cross-section.
+  * Infers morphology of coated black carbon aggregates based on particle mass, mixing state, and mass absorption cross-section.
+  * Calculates mass absorption cross-section based on particle mass, mixing state, and morphology.
 
 ## Dependencies
 
