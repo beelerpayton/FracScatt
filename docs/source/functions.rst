@@ -185,7 +185,6 @@ Functions for black carbon size distributions
    	- If DataPoints==True, coating amounts used in calculations, with units matching those of 'mode' option.
 	- If DataPoints==False, average and standard deviation of coating amounts used in calculations, with units matching those of 'mode' option.
    MAC : float
-	MAC\ :sub:`BC` with units of m\ :sup:`2`/g.
    	- If DataPoints==True, calculated MAC\ :sub:`BC` values, in  m\ :sup:`2`/g.
 	- If DataPoints==False, average and standard deviation of calculated MAC\ :sub:`BC` values, in  m\ :sup:`2`/g.
 
