@@ -49,5 +49,5 @@ Email: `beelerpayton@wustl.edu <mailto:beelerpayton@wustl.edu?subject=pyBCabs>`_
    :caption: Table of Contents
    
    Documentation Home <index>
-   Morphology Retrieval <functions>
+   Functions <functions>
    Example Scripts <examples>
