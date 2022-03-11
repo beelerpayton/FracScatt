@@ -16,6 +16,7 @@ Theory
    If MAC\ :sub:`BC,meas` is within 10% of MAC\ :sub:`BC,pred`, then :math:`{\rho}`\ :sub:`BC` can be constrained to 0 < :math:`{\rho}`\ :sub:`BC` < 1, but cannot be exactly calculated. If MAC\ :sub:`BC,meas` is less than 90% of MAC\ :sub:`BC,pred`, then :math:`{\rho}`\ :sub:`BC` is calculated by solving:   
    
    :math:`{MAC_{BC,meas}=MAC_0\left (\frac{\lambda}{\lambda_0} \right)^{-AAE}\left[\frac{D}{E+1}\left(\rho_{BC}^{1-E}-1\right)+\frac{D}{1-2E}\left(\rho_{BC}^{1-2E}-1\right)\right]+MAC_{BC,pred}}`.
+   
    Where :math:`{D}` and :math:`{E}` are sigmoid functions, given by:
    
    	:math:`{X=x_1+\frac{x_2-x_1}{1+\text{exp}\left[x_3\left(\rho_{BC}-x_4\right)\right]}}`.
@@ -57,7 +58,7 @@ Theory
    In a similar manner, users can supply the morphology, mixing state, and particle diameter, and the mass absorption cross-section can be calculated based on the core phase shift parameter.
 
 
-Functions for single particles
+Inverse function for single particle
 ---------------------------------
 
 .. py:function:: abs2shape_SP(coating, absorption, wavelength, diameter, [abs_error=0.0, mode='MtotMbc', r_monomer=20, asDict=True, ReturnPlot=True, PlotPoint=True])
@@ -103,6 +104,9 @@ Functions for single particles
    rho_upper : float
 	Upper limit of core phase shift parameter, based on average MAC\ :sub:`BC` and MAC\ :sub:`BC` errors.
 	
+Forward function for single particle
+---------------------------------
+
 .. py:function:: shape2abs_SP(dp, coating, wavelength, collapse, [mode='MtotMbc', r_monomer=20, asDict=True])
 
    Black carbon volume-equivalent diameter, coating amount, and morphology are input and MAC\ :sub:`BC` is calculated using the procedure outlined `above <https://pyBCabs.readthedocs.io/en/latest/functions.html#theory>`_. The particle mass is determined assuming the density of black carbon is 1.8 g/cm\ :sup:`3`.
@@ -138,7 +142,7 @@ Functions for single particles
    MAC : float
 	MAC\ :sub:`BC` with units of m\ :sup:`2`/g.
 
-Functions for black carbon size distributions
+Inverse function for black carbon size distribution
 ---------------------------------
 
 .. py:function:: abs2shape_SD(coating, absorption, wavelength, dpg, sigma_g, [abs_error=0.0, mode='MtotMbc', r_monomer=20, asDict=True, ReturnPlot=True])
@@ -187,6 +191,9 @@ Functions for black carbon size distributions
 	Average core phase shift parameter, based on average MAC\ :sub:`BC`.
    rho_upper : float
 	Upper limit of core phase shift parameter, based on average MAC\ :sub:`BC` and MAC\ :sub:`BC` errors.
+
+Forward function for black carbon size distribution
+---------------------------------
 
 .. py:function:: shape2abs_SD(dpg, sigma_g, coating_avg, coating_stdev, wavelength, collapse, [mode='MtotMbc', r_monomer=20, DataPoints=False, ShowPlots=True])
 
