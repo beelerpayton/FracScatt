@@ -110,4 +110,4 @@ To calculate MAC\ :sub:`BC` of a lognormal black carbon size distribution, use t
    
 The following plot is also generated:
 
-.. image:: images/ex3.png
+.. image:: images/ex4.png
