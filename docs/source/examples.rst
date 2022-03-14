@@ -6,7 +6,7 @@ Example Scripts
 Morphology of of a Single Black Carbon Particle
 -------------------------------------------------
 
-To infer the morphology of a single BC particle, use the :py:func:`abs2shape_SP` function. This example shows a particle with volume-equivalent diameter of 250nm, M\ :sub:`tot`/M\ :sub:`BC` of 10, and MAC\ :sub:`BC` of 12.5 m\ :sup:`2`/g measured at 532 nm.
+To infer the morphology of a single BC particle, use the :py:func:`abs2shape_SP` function. This example shows a particle with mass-equivalent diameter of 250nm, M\ :sub:`tot`/M\ :sub:`BC` of 10, and MAC\ :sub:`BC` of 12.5 m\ :sup:`2`/g measured at 532 nm.
 
 .. code-block:: pycon
    
@@ -29,8 +29,8 @@ If you wish to plot multiple particle-resolved measurements, this can also be do
 
 .. code-block:: pycon
    
-   wl=532 #wavlength
-   dp=np.logspace(np.log10(150),np.log10(250),10) #example BC diameter measurements
+   wl=532 #wavelength
+   dp=np.logspace(np.log10(150),np.log10(250),10) #example BC mass-equivalent diameter measurements
    M=10 #coating amount
    p_avg=np.zeros(len(dp))
    lower=np.zeros(len(dp))
@@ -59,7 +59,7 @@ The above code will generate a plot similar to this:
 Absorption of of a Single Black Carbon Particle
 -----------------------------------------
 
-To calculate MAC\ :sub:`BC` of a single particle, use the :py:func:`shape2abs_SP` function. This example shows a partially collapsed BC particle with volume-equivalent diameter of 250nm and M\ :sub:`tot`/M\ :sub:`BC` of 10, calculated at 532 nm.
+To calculate MAC\ :sub:`BC` of a single particle, use the :py:func:`shape2abs_SP` function. This example shows a partially collapsed BC particle with mass-equivalent diameter of 250nm and M\ :sub:`tot`/M\ :sub:`BC` of 10, calculated at 532 nm.
 
 .. code-block:: pycon
    
@@ -72,7 +72,7 @@ To calculate MAC\ :sub:`BC` of a single particle, use the :py:func:`shape2abs_SP
 Morphology of Black Carbon Size Distribution
 -------------------------------------------------
 
-To infer the morphology of a lognormal size distribution of black carbon particles, use the :py:func:`abs2shape_SD` function. This example shows a distribution of black carbon with geometric mean volume-equivalent diameter of 250nm, geometric standard deviation of 1.5, M\ :sub:`tot`/M\ :sub:`BC` of 10, and MAC\ :sub:`BC` of 12.5 m\ :sup:`2`/g measured at 532 nm. 
+To infer the morphology of a lognormal size distribution of black carbon particles, use the :py:func:`abs2shape_SD` function. This example shows a distribution of black carbon with geometric mean mass-equivalent diameter of 250nm, geometric standard deviation of 1.5, M\ :sub:`tot`/M\ :sub:`BC` of 10, and MAC\ :sub:`BC` of 12.5 m\ :sup:`2`/g measured at 532 nm. 
    
 .. code-block:: pycon
    
@@ -95,7 +95,7 @@ The above code will generate the following plot:
 Absorption of of a Black Carbon Size Distribution
 -----------------------------------------
 
-To calculate MAC\ :sub:`BC` of a lognormal black carbon size distribution, use the :py:func:`shape2abs_SD` function. This example shows a partially collapsed black carbon size distribution with geometric mean volume-equivalent diameter of 250nm, geometric standard deviation of 1.5, and M\ :sub:`tot`/M\ :sub:`BC` of 10 (with standard deviation of 2), calculated at 532 nm.
+To calculate MAC\ :sub:`BC` of a lognormal black carbon size distribution, use the :py:func:`shape2abs_SD` function. This example shows a partially collapsed black carbon size distribution with geometric mean mass-equivalent diameter of 250nm, geometric standard deviation of 1.5, and M\ :sub:`tot`/M\ :sub:`BC` of 10 (with standard deviation of 2), calculated at 532 nm.
 
 .. code-block:: pycon
    
