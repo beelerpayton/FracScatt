@@ -101,12 +101,12 @@ To calculate MAC\ :sub:`BC` of a lognormal black carbon size distribution, use t
    
    >>> import pyBCabsorption as pbca
    >>> pbca.shape2abs_SD(250, 1.5, 10, 2, 532, 'partial', mode='MtotMbc', r_monomer=20, DataPoints=False, ShowPlots=True)
-   {'dp_avg': 271.27331468698907, 
-   'dp_stdev': 116.31278553447174, 
-   'coating_avg': 9.989515341712535, 
-   'coating_stdev': 1.993898151280818, 
-   'MAC_avg': 15.163523372302134, 
-   'MAC_std': 0.8651650806895144}
+   {'dp_avg': 271.1435259574555, 
+   'dp_stdev': 115.42341830345885, 
+   'coating_avg': 9.989282292286155, 
+   'coating_stdev': 1.9791873855346263, 
+   'MAC_avg': 15.165034433016245, 
+   'MAC_std': 0.8543285503019649}
    
 The following plot is also generated:
 
