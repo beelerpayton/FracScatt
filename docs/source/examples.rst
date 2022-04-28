@@ -6,12 +6,12 @@ Example Scripts
 Morphology of of a Single Black Carbon Particle
 -------------------------------------------------
 
-To infer the morphology of a single BC particle, use the :py:func:`abs2shape_SP` function. This example shows a particle with mass-equivalent diameter of 250nm, M\ :sub:`tot`/M\ :sub:`BC` of 10, and MAC\ :sub:`BC` of 12.5 m\ :sup:`2`/g measured at 532 nm.
+To infer the morphology of a single BC particle, use the :py:func:`abs2shape_SP` function. This example shows a particle with mass-equivalent diameter of 250nm, M\ :sub:`tot`/M\ :sub:`BC` of 10, and MAC\ :sub:`BC` of 12.5 m\ :sup:`2`/g measured at 532 nm, coated with non-absorbing material.
 
 .. code-block:: pycon
    
    >>> import pyBCabsorption as pbca
-   >>> pbca.abs2shape_SP(10,12.5,532,250,ReturnPlot=False,PlotPoint=True)
+   >>> pbca.abs2shape_SP(250, 10, 12.5, 532, k_coat=0.00, ReturnPlot=False, PlotPoint=True)
    {'mass': 14.726215563702151,
    'rho_lower': 1.6958737655127754,
    'rho': 1.6958737655127754,
@@ -37,12 +37,12 @@ If you wish to plot multiple particle-resolved measurements, this can also be do
    upper=np.zeros(len(dp))
    mass=np.zeros(len(dp))
         
-   fig, ax, result = pbca.abs2shape_SP(1,5,wl,250,abs_error=1.0,ReturnPlot=True,PlotPoint=False)
+   fig, ax, result = pbca.abs2shape_SP(1, M, 6.4, wl, k_coat=0.0, abs_error=1.0, ReturnPlot=True, PlotPoint=False)
     
    for i in range(0,len(dp)):
         
        MAC=np.random.normal(0.8,0.1)*15
-       result=pbca.abs2shape_SP(M,MAC,wl,dp[i],abs_error=1.0,ReturnPlot=False,PlotPoint=False)
+       result=pbca.abs2shape_SP(dp[i], M, MAC, wl, k_coat=0.0, abs_error=1.0, ReturnPlot=False, PlotPoint=False)
        mass[i]=result['mass']
        p_avg[i]=result['rho']
        lower[i]=result['rho']-result['rho_lower']
@@ -59,12 +59,12 @@ The above code will generate a plot similar to this:
 Absorption of of a Single Black Carbon Particle
 -----------------------------------------
 
-To calculate MAC\ :sub:`BC` of a single particle, use the :py:func:`shape2abs_SP` function. This example shows a partially collapsed BC particle with mass-equivalent diameter of 250nm and M\ :sub:`tot`/M\ :sub:`BC` of 10, calculated at 532 nm.
+To calculate MAC\ :sub:`BC` of a single particle, use the :py:func:`shape2abs_SP` function. This example shows a partially collapsed BC particle with mass-equivalent diameter of 250nm and M\ :sub:`tot`/M\ :sub:`BC` of 10, calculated at 532 nm, with non-absorbing coating.
 
 .. code-block:: pycon
    
    >>> import pyBCabsorption as pbca
-   >>> pbca.shape2abs_SP(250, 10, 532, 'partial', mode='MtotMbc', r_monomer=20, asDict=True)
+   >>> pbca.shape2abs_SP(250, 10, 'partial', 532, k_coat=0.00, mode='MtotMbc', r_monomer=20, asDict=True)
    {'dp': 250,
    'coating': 10,
    'MAC': 15.270921290660958}
@@ -72,12 +72,12 @@ To calculate MAC\ :sub:`BC` of a single particle, use the :py:func:`shape2abs_SP
 Morphology of Black Carbon Size Distribution
 -------------------------------------------------
 
-To infer the morphology of a lognormal size distribution of black carbon particles, use the :py:func:`abs2shape_SD` function. This example shows a distribution of black carbon with geometric mean mass-equivalent diameter of 250nm, geometric standard deviation of 1.5, M\ :sub:`tot`/M\ :sub:`BC` of 10, and MAC\ :sub:`BC` of 12.5 m\ :sup:`2`/g measured at 532 nm. 
+To infer the morphology of a lognormal size distribution of black carbon particles, use the :py:func:`abs2shape_SD` function. This example shows a distribution of black carbon with geometric mean mass-equivalent diameter of 250nm, geometric standard deviation of 1.5, M\ :sub:`tot`/M\ :sub:`BC` of 10, and MAC\ :sub:`BC` of 12.5 m\ :sup:`2`/g measured at 532 nm, with non-absorbing coating. 
    
 .. code-block:: pycon
    
    >>> import pyBCabsorption as pbca
-   >>> pbca.abs2shape_SD(10,12.5,532,250,1.5,abs_error=1.0,ReturnPlot=True)
+   >>> pbca.abs2shape_SD(250, 1.5, 10, 12.5, 532, k_coat=0.0, abs_error=1.0, ReturnPlot=True)
    <Figure size 832x624 with 1 Axes>, 
    <matplotlib.axes._subplots.AxesSubplot object at 0x119e22e80>, 
    {'min_mass': 4.363323129985816, 
@@ -95,12 +95,12 @@ The above code will generate the following plot:
 Absorption of of a Black Carbon Size Distribution
 -----------------------------------------
 
-To calculate MAC\ :sub:`BC` of a lognormal black carbon size distribution, use the :py:func:`shape2abs_SD` function. This example shows a partially collapsed black carbon size distribution with geometric mean mass-equivalent diameter of 250nm, geometric standard deviation of 1.5, and M\ :sub:`tot`/M\ :sub:`BC` of 10 (with standard deviation of 2), calculated at 532 nm.
+To calculate MAC\ :sub:`BC` of a lognormal black carbon size distribution, use the :py:func:`shape2abs_SD` function. This example shows a partially collapsed black carbon size distribution with geometric mean mass-equivalent diameter of 250nm, geometric standard deviation of 1.5, and M\ :sub:`tot`/M\ :sub:`BC` of 10 (with standard deviation of 2), calculated at 532 nm, with non-absorbing coating.
 
 .. code-block:: pycon
    
    >>> import pyBCabsorption as pbca
-   >>> pbca.shape2abs_SD(250, 1.5, 10, 2, 532, 'partial', mode='MtotMbc', r_monomer=20, DataPoints=False, ShowPlots=True)
+   >>> pbca.shape2abs_SD(250, 1.5, 10, 2, 'partial', 532, k_coat=0.00, mode='MtotMbc', r_monomer=20, DataPoints=False, ShowPlots=True)
    {'dp_avg': 271.1435259574555, 
    'dp_stdev': 115.42341830345885, 
    'coating_avg': 9.989282292286155, 
