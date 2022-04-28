@@ -4,7 +4,7 @@ Functions for Internally Mixed Black Carbon Aggregates
 Theory 
 ---------------------------------
 
-   This package computes the core phase shift parameter (<img src="https://render.githubusercontent.com/render/math?math=\rho_{BC} = -1">) to infer the morphology of fractal black carbon aggregates using the particle mass-equivalent diameter (d\ :sub:`p`), mass absorption cross-section (MAC\ :sub:`BC`), and mixing state (M\ :sub:`tot`/M\ :sub:`BC`). It should be noted that in this package, MAC\ :sub:`BC` is defined as the absorption cross-section per unit mass of black carbon. First, :math:`{\rho}`\ :sub:`BC` is constrained by determining whether the measured mass absorption cross-section (MAC\ :sub:`BC,meas`) is significantly less than that given by:
+   This package computes the core phase shift parameter :math:`$\rho$`\ :sub:`BC`(:math:`{\rho}`\ :sub:`BC`) to infer the morphology of fractal black carbon aggregates using the particle mass-equivalent diameter (d\ :sub:`p`), mass absorption cross-section (MAC\ :sub:`BC`), and mixing state (M\ :sub:`tot`/M\ :sub:`BC`). It should be noted that in this package, MAC\ :sub:`BC` is defined as the absorption cross-section per unit mass of black carbon. First, :math:`{\rho}`\ :sub:`BC` is constrained by determining whether the measured mass absorption cross-section (MAC\ :sub:`BC,meas`) is significantly less than that given by:
    
    :math:`{MAC_{BC,pred}=MAC_0\left (\frac{\lambda}{\lambda_0} \right)^{-AAE}\left[1+\frac{AC^{-B}\Gamma(B+1,C)}{C}-\frac{A\left(\frac{M_{tot}}{M_{BC}}\right)^{B}\left(\frac{M_{tot}}{M_{BC}}\right)^{-B}\Gamma\left(B+1,C\frac{M_{tot}}{M_{BC}}\right)}{C}\right]}`.	
 	- :math:`{A=-1.189\pm0.029}`
