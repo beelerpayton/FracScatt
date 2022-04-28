@@ -61,7 +61,7 @@ Theory
 Inverse function for single particle
 ---------------------------------
 
-.. py:function:: abs2shape_SP(diameter, coating, absorption, wavelength, [k_coat=0.0, abs_error=0.0, mode='MtotMbc', r_monomer=20, asDict=True, ReturnPlot=True, PlotPoint=True])
+.. py:function:: abs2shape_SP(diameter, coating, absorption, wavelength [k_coat=0.0, abs_error=0.0, mode='MtotMbc', r_monomer=20, asDict=True, ReturnPlot=True, PlotPoint=True])
 
    Black carbon mass-equivalent diameter, coating amount, and MAC\ :sub:`BC` are input and morpholgy is inferred using the procedure outlined `above <https://pyBCabs.readthedocs.io/en/latest/functions.html#theory>`_. The particle mass is used to infer the number of monomers, assuming the density of black carbon is 1.8 g/cm\ :sup:`3`.
    
@@ -109,7 +109,7 @@ Inverse function for single particle
 Forward function for single particle
 ---------------------------------
 
-.. py:function:: shape2abs_SP(dp, coating, collapse, wavelength, [k_coat=0.0, mode='MtotMbc', r_monomer=20, asDict=True])
+.. py:function:: shape2abs_SP(dp, coating, collapse, wavelength [k_coat=0.0, mode='MtotMbc', r_monomer=20, asDict=True])
 
    Black carbon mass-equivalent diameter, coating amount, and morphology are input and MAC\ :sub:`BC` is calculated using the procedure outlined `above <https://pyBCabs.readthedocs.io/en/latest/functions.html#theory>`_.
    
@@ -149,7 +149,7 @@ Forward function for single particle
 Inverse function for black carbon size distribution
 ---------------------------------
 
-.. py:function:: abs2shape_SD(dpg, sigma_g, coating, absorption, wavelength, [k_coat=0.0, abs_error=0.0, mode='MtotMbc', r_monomer=20, asDict=True, ReturnPlot=True])
+.. py:function:: abs2shape_SD(dpg, sigma_g, coating, absorption, wavelength [k_coat=0.0, abs_error=0.0, mode='MtotMbc', r_monomer=20, asDict=True, ReturnPlot=True])
 
    Black carbon mass-equivalent lognormal size distribution, coating amount, and MAC\ :sub:`BC` are input and morpholgy is inferred using the procedure outlined `above <https://pyBCabs.readthedocs.io/en/latest/functions.html#theory>`_. The particle mass is used to infer the number of monomers, assuming the density of black carbon is 1.8 g/cm\ :sup:`3`.
    
@@ -201,7 +201,7 @@ Inverse function for black carbon size distribution
 Forward function for black carbon size distribution
 ---------------------------------
 
-.. py:function:: shape2abs_SD(dpg, sigma_g, coating_avg, coating_stdev, collapse, wavelength, [k_coat=0.00, mode='MtotMbc', r_monomer=20, DataPoints=False, ShowPlots=True])
+.. py:function:: shape2abs_SD(dpg, sigma_g, coating_avg, coating_stdev, collapse, wavelength [k_coat=0.00, mode='MtotMbc', r_monomer=20, DataPoints=False, ShowPlots=True])
 
    Black carbon mass-equivalent lognormal size distribution, coating distribution, and morphology are input and distribution of MAC\ :sub:`BC` is calculated. Black carbon mass-equivalent diameter and coating amount are randomly sampled per the input distributions, and MAC\ :sub:`BC` is calculated using the procedure outlined `above <https://pyBCabs.readthedocs.io/en/latest/functions.html#theory>`_. 
    
