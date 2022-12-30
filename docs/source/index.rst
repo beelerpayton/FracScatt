@@ -7,7 +7,7 @@
 Online user's guide for the Python Black Carbon Absorption package (pyBCabs)
 ======================================================================
 
-Documentation is always under development, but mostly complete. A manuscript communicating the development of the morphology retrival was published by the `Journal Name <http://www.sciencedirect.com/science/journal/00224073>`_, and is `available here <https://doi.org/10.1016/j.jqsrt.2017.10.012>`_.
+Documentation is always under development, but mostly complete. A manuscript communicating the development of the morphology retrival was published by `Atmospheric Chemistry and Physics <https://www.atmospheric-chemistry-and-physics.net>`_, and is `available here <https://doi.org/10.5194/acp-22-14825-2022>`_.
 
 **NOTE TO USERS:** When using pyBCabsorption, pay close attention to the units of the your inputs. Wavelength and particle diameters are always in nanometers, mass absorption cross-sections are in m\ :sup:`2`/g. If you use other units, your outputs may not make sense.
 
