@@ -10,8 +10,8 @@ To infer the morphology of a single BC particle, use the :py:func:`abs2shape_SP`
 
 .. code-block:: pycon
    
-   >>> import pyBCabsorption as pbca
-   >>> pbca.abs2shape_SP(250, 10, 12.5, 532, k_coat=0.00, ReturnPlot=False, PlotPoint=True)
+   >>> import pyBCabs
+   >>> pyBCabs.abs2shape_SP(250, 10, 12.5, 532, k_coat=0.00, ReturnPlot=False, PlotPoint=True)
    {'mass': 14.726215563702151,
    'rho_lower': 1.6958737655127754,
    'rho': 1.6958737655127754,
@@ -42,7 +42,7 @@ If you wish to plot multiple particle-resolved measurements, this can also be do
    for i in range(0,len(dp)):
         
        MAC=np.random.normal(0.8,0.1)*15
-       result=pbca.abs2shape_SP(dp[i], M, MAC, wl, k_coat=0.0, abs_error=1.0, ReturnPlot=False, PlotPoint=False)
+       result=pyBCabs.abs2shape_SP(dp[i], M, MAC, wl, k_coat=0.0, abs_error=1.0, ReturnPlot=False, PlotPoint=False)
        mass[i]=result['mass']
        p_avg[i]=result['rho']
        lower[i]=result['rho']-result['rho_lower']
@@ -63,8 +63,8 @@ To calculate MAC\ :sub:`BC` of a single particle, use the :py:func:`shape2abs_SP
 
 .. code-block:: pycon
    
-   >>> import pyBCabsorption as pbca
-   >>> pbca.shape2abs_SP(250, 10, 'partial', 532, k_coat=0.00, mode='MtotMbc', r_monomer=20, asDict=True)
+   >>> import pyBCabs
+   >>> pyBCabs.shape2abs_SP(250, 10, 'partial', 532, k_coat=0.00, mode='MtotMbc', r_monomer=20, asDict=True)
    {'dp': 250,
    'coating': 10,
    'MAC': 15.270921290660958}
@@ -76,8 +76,8 @@ To infer the morphology of a lognormal size distribution of black carbon particl
    
 .. code-block:: pycon
    
-   >>> import pyBCabsorption as pbca
-   >>> pbca.abs2shape_SD(250, 1.5, 10, 12.5, 532, k_coat=0.0, abs_error=1.0, ReturnPlot=True)
+   >>> import pyBCabs
+   >>> pyBCabs.abs2shape_SD(250, 1.5, 10, 12.5, 532, k_coat=0.0, abs_error=1.0, ReturnPlot=True)
    <Figure size 832x624 with 1 Axes>, 
    <matplotlib.axes._subplots.AxesSubplot object at 0x119e22e80>, 
    {'min_mass': 4.363323129985816, 
@@ -99,8 +99,8 @@ To calculate MAC\ :sub:`BC` of a lognormal black carbon size distribution, use t
 
 .. code-block:: pycon
    
-   >>> import pyBCabsorption as pbca
-   >>> pbca.shape2abs_SD(250, 1.5, 10, 2, 'partial', 532, k_coat=0.00, mode='MtotMbc', r_monomer=20, DataPoints=False, ShowPlots=True)
+   >>> import pyBCabs
+   >>> pyBCabs.shape2abs_SD(250, 1.5, 10, 2, 'partial', 532, k_coat=0.00, mode='MtotMbc', r_monomer=20, DataPoints=False, ShowPlots=True)
    {'dp_avg': 271.1435259574555, 
    'dp_stdev': 115.42341830345885, 
    'coating_avg': 9.989282292286155, 
