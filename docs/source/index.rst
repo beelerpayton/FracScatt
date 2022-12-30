@@ -27,7 +27,7 @@ or from `GitHub <https://github.com/beelerpayton/pyBCabs>`_. Clone the repositor
 Revision History
 ----------------
 
-- 0.0.1 (28 February, 2022)
+- 0.0.1 (30 December, 2022)
 
   - Initial release.
   
