@@ -10,7 +10,7 @@ To infer the morphology of a single BC particle, use the :py:func:`abs2shape_SP`
 
 .. code-block:: pycon
    
-   >>> import pyBCabs
+   >>> import pyBCabs.retrival as pyBCabs
    >>> pyBCabs.abs2shape_SP(250, 10, 12.5, 532, k_coat=0.00, ReturnPlot=False, PlotPoint=True)
    {'mass': 14.726215563702151,
    'rho_lower': 1.6958737655127754,
@@ -37,7 +37,7 @@ If you wish to plot multiple particle-resolved measurements, this can also be do
    upper=np.zeros(len(dp))
    mass=np.zeros(len(dp))
         
-   fig, ax, result = pbca.abs2shape_SP(1, M, 6.4, wl, k_coat=0.0, abs_error=1.0, ReturnPlot=True, PlotPoint=False)
+   fig, ax, result = pyBCabs.abs2shape_SP(1, M, 6.4, wl, k_coat=0.0, abs_error=1.0, ReturnPlot=True, PlotPoint=False)
     
    for i in range(0,len(dp)):
         
@@ -63,7 +63,7 @@ To calculate MAC\ :sub:`BC` of a single particle, use the :py:func:`shape2abs_SP
 
 .. code-block:: pycon
    
-   >>> import pyBCabs
+   >>> import pyBCabs.retrival as pyBCabs
    >>> pyBCabs.shape2abs_SP(250, 10, 'partial', 532, k_coat=0.00, mode='MtotMbc', r_monomer=20, asDict=True)
    {'dp': 250,
    'coating': 10,
@@ -76,7 +76,7 @@ To infer the morphology of a lognormal size distribution of black carbon particl
    
 .. code-block:: pycon
    
-   >>> import pyBCabs
+   >>> import pyBCabs.retrival as pyBCabs
    >>> pyBCabs.abs2shape_SD(250, 1.5, 10, 12.5, 532, k_coat=0.0, abs_error=1.0, ReturnPlot=True)
    <Figure size 832x624 with 1 Axes>, 
    <matplotlib.axes._subplots.AxesSubplot object at 0x119e22e80>, 
@@ -99,7 +99,7 @@ To calculate MAC\ :sub:`BC` of a lognormal black carbon size distribution, use t
 
 .. code-block:: pycon
    
-   >>> import pyBCabs
+   >>> import pyBCabs.retrival as pyBCabs
    >>> pyBCabs.shape2abs_SD(250, 1.5, 10, 2, 'partial', 532, k_coat=0.00, mode='MtotMbc', r_monomer=20, DataPoints=False, ShowPlots=True)
    {'dp_avg': 271.1435259574555, 
    'dp_stdev': 115.42341830345885, 
