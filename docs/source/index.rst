@@ -17,25 +17,19 @@ Install pyBCabs
 
 The current version is 0.0.1. You can install pyBCabs from `The Python Package Index (PyPI) <https://pypi.python.org/pypi/pyBCabs>`_ with ::
 
-   $ pip install -i https://test.pypi.org/simple/ pyBCabs==0.0.4
+   $ pip install pyBCabs==0.0.1
 
 or from `GitHub <https://github.com/beelerpayton/pyBCabs>`_. Clone the repository and then run ::
 
    $ python setup.py install
 
-Revision Notes
-----------------
-
-- 0.0.1 (28 February, 2022)
-
-  - Debugging and troubleshooting.
   
 Revision History
 ----------------
 
 - 0.0.1 (28 February, 2022)
 
-  - Debugging and troubleshooting.
+  - Initial release.
   
 Author Contact Information
 --------------------------
